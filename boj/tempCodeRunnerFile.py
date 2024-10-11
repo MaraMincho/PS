@@ -1,2 +1,2 @@
 
-    return -1
+        mid = (lo + hi) // 2
