@@ -1,2 +1,2 @@
 
-        mid = (lo + hi) // 2
+    dfs(i)
