@@ -1,6 +1,7 @@
 import sys
 import collections
 input = sys.stdin.readline
+## https://maramincho.tistory.com/157
 
 def sol() :
     curInput = input().strip()
