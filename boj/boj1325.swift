@@ -12,13 +12,13 @@ func sol() {
 
     var visited = Array(repeating: false, count: N + 1)
     func dfs(_ root: Int) -> Int {
-        if visited[root] {
-            return 0
-        }
-        visited[root] = true
+        
         var currentDepth = 1
         for next in graph[root] {
-            currentDepth += dfs(next)
+            if visited[next] == false {
+                visited[next] = true
+                currentDepth += dfs(next)
+            }
         }
         return currentDepth
     }
@@ -26,6 +26,7 @@ func sol() {
     var res: [Int] = [-1]
     for ind in 1...N {
         visited = Array(repeating: false, count: N + 1)
+        visited[ind] = true
         res.append(dfs(ind))
     }
     let maxVal = res.max()!

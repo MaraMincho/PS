@@ -12,16 +12,16 @@ res = [-1]
 
 def bfs(root) :
     q = collections.deque([root])
-    tempRes = 0
+    tempRes = 1
     visited = [False] * (V + 1)
+    visited[root] = True
     while q :
         cur = q.popleft()
-        if visited[cur]:
-            continue
-        visited[cur] = True
-        tempRes += 1
         for next in graph[cur] :
-            q.append(next)
+            if not visited[next] :
+                visited[next] = True
+                tempRes += 1
+                q.append(next)
     return tempRes
 for ind in range(1, V + 1) :
     res.append(bfs(ind))
