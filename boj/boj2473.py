@@ -32,4 +32,3 @@ while flagValue != 0 and left + 1 < right :
         right -= 1
 
 print(*list(map(lambda x: str(nums[x]), flagNums)))
-
