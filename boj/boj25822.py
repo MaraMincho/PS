@@ -42,21 +42,3 @@ while right < N :
 
 print(maxLength)
 print(max(days))
-
-# 3
-# 7
-# 0 20 0 0 0 7 0
-
-# 3
-# 7
-# 0 9 0 0 0 20 0
-# answer
-# 3
-# 20
-
-# 1
-# 7
-# 0 20 0 0 1 2 0
-# answer 
-# 3
-# 2
