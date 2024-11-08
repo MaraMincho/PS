@@ -1,5 +1,4 @@
 import sys
-import heapq
 input = sys.stdin.readline
 
 N = int(input())
@@ -17,18 +16,12 @@ def dist(x, y) :
     return min(currentDist)
 
 def addBoard(p) :
-    for ind in range(len(p)) :
+    for ind in range(N - 1) :
         (pInd, _, _, _) = p[ind]
-        if ind > 0 :
-            prevInd = p[ind - 1][0]
-            curDist = dist(planets[pInd], planets[prevInd])
-            nexts = prevInd, pInd if prevInd < pInd else prevInd, pInd
-            q.append((curDist, nexts[0], nexts[1]))
-        if ind < N - 1 :
-            nextInd = p[ind + 1][0]
-            curDist = dist(planets[pInd], planets[nextInd])
-            nexts = nextInd, pInd if nextInd < pInd else nextInd, pInd
-            q.append((curDist, nexts[0], nexts[1]))
+        nextInd = p[ind + 1][0]
+        curDist = dist(planets[pInd], planets[nextInd])
+        nexts = nextInd, pInd if nextInd < pInd else nextInd, pInd
+        q.append((curDist, nexts[0], nexts[1]))
 
 [addBoard(x) for x in ps]
 
