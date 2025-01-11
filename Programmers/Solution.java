@@ -1,10 +1,25 @@
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.IntStream;
+
 class Solution {
     public static void main(String[] args) {
-        System.out.println(solution("Program29b8UYP"	,"merS123",	7));
+        List<String> list = new ArrayList<String>();
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+
+        list.sort((Comparator<String>) (str1, str2) -> str1.compareTo(str2));
+        Collections.reverse(list);
+        System.err.println(list); 
     }
 
-    public static String solution(String my_string, String overwrite_string, int s) {
-        String answer = my_string.substring(0, s) + overwrite_string + my_string.substring(s + overwrite_string.length(), my_string.length());
-        return answer.toString();
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        ArrayList<Integer> cur = IntStream.of(nums1).map($0 -> $0.object);
     }
 }
