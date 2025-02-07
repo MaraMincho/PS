@@ -1,37 +1,30 @@
-import curses
-import math
-import time
-
-def draw_heart(stdscr, angle):
-    stdscr.clear()
-    height, width = stdscr.getmaxyx()
-    center_x, center_y = width // 2, height // 2
-
-    for y in range(-15, 15):
-        for x in range(-30, 30):
-            # 기본 하트 방정식
-            heart = (x**2 + y**2 - 1)**3 - x**2 * y**3
-            
-            # 회전 변환 적용
-            x_rot = x * math.cos(angle) - y * math.sin(angle)
-            y_rot = x * math.sin(angle) + y * math.cos(angle)
-            
-            if heart < 0:
-                screen_x = int(center_x + x_rot * 2)  # 가로로 늘리기
-                screen_y = int(center_y - y_rot)
-                if 0 <= screen_x < width and 0 <= screen_y < height:
-                    stdscr.addch(screen_y, screen_x, "*")
+# import heapq
+# def solution(stones, k):
+#     if k == 1 :
+#         return min(stones)
     
-    stdscr.refresh()
+#     res = [] 
+    
+#     for ind in range(len(stones) - k):
+#         res.append(max(stones[ind: ind + k]))
+    
+#     return min(res)
 
-def main(stdscr):
-    curses.curs_set(0)
-    angle = 0
+import collections
+def solution(stones, k):
+    d = collections.deque()
+    res = 0
+    for ind in range(len(stones)) :
+        while d and d[0] + k < ind :
+            d.popleft()
+        
+        while d and stones[ind] < stones[d[-1]] :
+            d.pop()
 
-    while True:
-        draw_heart(stdscr, angle)
-        angle += math.pi / 60  # 회전 속도
-        time.sleep(0.05)
+        d.append(ind)
+        
+        if ind <= k - 1 :
+            res = max(res, d[-1])
+    return res
 
-if __name__ == "__main__":
-    curses.wrapper(main)
+print(solution([2, 4, 5, 3, 2, 1, 4, 2, 5, 1],3))
