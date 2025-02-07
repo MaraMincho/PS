@@ -106,3 +106,6 @@ Floyd-Warshall 알고리즘과 전이 폐쇄 알고리즘 모두 시간 복잡�
 - 하지만 Python에서 숫자나 불리언 값 모두 메모리를 크게 다르게 사용하는 것은 아니기 - 때문에, 공간 절약도 그렇게 눈에 띄는 차이는 아닐 것입니다.
 ### 결론
 - Floyd-Warshall과 전이 폐쇄 알고리즘의 시간 복잡도와 공간 복잡도는 동일하게 **O(n³)**와 **O(n²)**입니다. "시간과 공간을 절약할 수 있다"는 표현은 논리 연산이 덧셈 연산에 비해 상대적으로 빠르고 메모리를 덜 사용할 수 있다는 점을 미세하게 고려한 것일 수 있지만, 이러한 차이는 큰 영향을 주지 않으며, 알고리즘의 복잡도 측면에서 중요한 요소로 작용하지 않습니다.
+
+
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fjeevangupta.com%2Fpython-string-tutorial-learning-python-string-with-example%2F&psig=AOvVaw1YafDcC17ozw09es2WtjFX&ust=1738974542238000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjw95CnsIsDFQAAAAAdAAAAABAE
