@@ -16,4 +16,4 @@ def dfs(cur, depth) :
         return 3 + depth
     next = dfs(cur - 1, depth)
     
-    return next + c + next
+    return next +  next
