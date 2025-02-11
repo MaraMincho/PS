@@ -1,30 +1,20 @@
-# import heapq
-# def solution(stones, k):
-#     if k == 1 :
-#         return min(stones)
+def solution(sequence):
+    lo, hi = 0, 0
     
-#     res = [] 
-    
-#     for ind in range(len(stones) - k):
-#         res.append(max(stones[ind: ind + k]))
-    
-#     return min(res)
-
-import collections
-def solution(stones, k):
-    d = collections.deque()
-    res = 0
-    for ind in range(len(stones)) :
-        while d and d[0] + k < ind :
-            d.popleft()
+    answer = max(list(map(lambda x: abs(x), sequence)))
+    while lo < len(sequence):
+        cur = sequence[lo]
+        prev = cur
         
-        while d and stones[ind] < stones[d[-1]] :
-            d.pop()
-
-        d.append(ind)
+        while hi + 1 < len(sequence) and prev * sequence[hi + 1] <= 0:
+            hi += 1
+            prev = sequence[hi]
         
-        if ind <= k - 1 :
-            res = max(res, d[-1])
-    return res
+        t = sequence[lo: hi + 1]
+        answer = max(answer, sum(list(map(lambda x: abs(x), t))))
+        lo = hi + 1
+        hi = lo
+        
+    return answer
 
-print(solution([2, 4, 5, 3, 2, 1, 4, 2, 5, 1],3))
+print(solution([2, 3, -6, 1, 3, -1, 2, 4]	))
