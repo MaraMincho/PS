@@ -1,1 +1,2 @@
-6
+if not users:
+        #     return 0
